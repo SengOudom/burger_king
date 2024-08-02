@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5ebdc;
+  color: #502314;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: "Flame-Bold";   /*Can be any text*/
+  src: local("AirbnbCerealLight"),
+    url("./assets/fonts/Flame-Bold.woff") format("truetype");
+}
+
+
+/* bold */
+.Flame_Bold {
+  font-family: "Flame-Bold";
+}
+
+@font-face {
+  font-family: "Flame-Regular";   /*Can be any text*/
+  src: local("AirbnbCerealLight"),
+    url("./assets/fonts/Flame-Regular.woff") format("truetype");
+}
+
+
+
+/* normal */
+.Flame_Regular {
+  font-family: "Flame-Regular";
+}
+
+@font-face {
+  font-family: "FlameSans-Regular";   /*Can be any text*/
+  src: local("AirbnbCerealLight"),
+    url("./assets/fonts/FlameSans-Regular.woff") format("truetype");
+}
+
+
+/* text */
+.FlameSans_Regular {
+  font-family: "FlameSans-Regular";
+}
+
+.relaod {
+  background-color: #f0e4d4cc;
+  border-radius: 0.5rem;
+}
