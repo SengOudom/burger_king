@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ProductsFoodController extends Controller
+class FoodsController extends Controller
 {
-    public function inputProductsFood(Request $request)
+    public function inputFoods(Request $request)
     {
         $food_type = $request->food_type;
         $food_name = $request->food_name;
@@ -63,10 +63,10 @@ class ProductsFoodController extends Controller
     }
 
 
-    public function inputProductsType(Request $request)
+    public function inputFoodsType(Request $request)
     {
-        $food_name = $request->food_name;
-        $food_type = $request->food_type;
+        $f_name = $request->food_name;
+        $f_type = $request->food_type;
         $f_calories = $request->calories;
         $f_fat = $request->fat;
         $f_saturated_fat = $request->saturated_fat;
@@ -82,8 +82,8 @@ class ProductsFoodController extends Controller
         $more_info = $request->more_info;
         $now_dt = date("Y-m-d H:i:s");
 
-        $name = str_replace(' ', '#', $food_name);
-        $type = str_replace(' ', '#', strtolower($food_type));
+        $name = str_replace(' ', '#', $f_name);
+        $type = str_replace(' ', '#', strtolower($f_type));
         $calories = str_replace(' ', '#', $f_calories);
         $fat = str_replace(' ', '#', $f_fat);
         $saturated_fat = str_replace(' ', '#', $f_saturated_fat);
@@ -171,7 +171,7 @@ class ProductsFoodController extends Controller
             $more_info = NULL;
         }
 
-        $image = $this->storeImage($file, $food_name);
+        $image = $this->storeImage($file, $f_name);
 
         if ($image) {
             $val = [
@@ -215,17 +215,17 @@ class ProductsFoodController extends Controller
 
 
 
-    public function requestProducts()
+    public function requestFoods()
     {
-        $product_food = DB::table('product_food')->where('status', 1)->get();
-        $product_type = DB::table('product_type')->where('status', 1)->get();
-
-        if ($product_food && $product_type) {
+        $foods = DB::table('food_bk')->where('status', 1)->get();
+        $food_type = DB::table('food_type')->where('status', 1)->get();
+        
+        if ($foods && $food_type) {
 
         
             $data = [
-                'product_food' => $product_food,
-                'product_type' => $product_type,
+                'foods' => $foods,
+                'food_type' => $food_type,
             ];
             return response()->json([
                 'code' => 1,

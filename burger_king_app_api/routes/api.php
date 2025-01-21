@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsFoodController;
+use App\Http\Controllers\FoodsController;
 use App\Http\Controllers\ImageController;
 
 /*
@@ -21,7 +21,7 @@ use App\Http\Controllers\ImageController;
 // });
 
 
-Route::post('/products', [ProductsFoodController::class, 'requestProducts']);
-Route::post('/products_food', [ProductsFoodController::class, 'inputProductsFood']);
-Route::post('/products_type', [ProductsFoodController::class, 'inputProductsType']);
+Route::get('foods', [FoodsController::class, 'requestFoods']);
+Route::post('/input_foods', [FoodsController::class, 'inputFoods']);
+Route::post('/input_foods_type', [FoodsController::class, 'inputFoodsType']);
 Route::get('/image/{image}', [ImageController::class, 'requestImage']);

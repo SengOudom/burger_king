@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Main from "./components/Main";
-import Account from "./components/Account";
-import AboutBk from "./components/AboutBk";
-import OfferTerms from "./components/OfferTerms";
-import NutritionExpolrer from "./components/NutritionExpolrer";
-import DeliveryTerms from "./components/DeliveryTerms";
-import FranchiseBk from "./components/FranchiseBk";
+import Account from "./components/List/Account";
+import AboutBk from "./components/List/AboutBk";
+import OfferTerms from "./components/List/OfferTerms";
+import NutritionExpolrer from "./components/List/NutritionExpolrer";
+import DeliveryTerms from "./components/List/DeliveryTerms";
+import FranchiseBk from "./components/List/FranchiseBk";
 
 export default function Router() {
   return (
