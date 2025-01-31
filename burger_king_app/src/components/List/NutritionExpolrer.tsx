@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, Fragment } from "react";
 import { IoClose, IoChevronDownSharp } from "react-icons/io5";
 import { LOCAL_URL } from "../../config/index";
 import { ajaxGet } from "../../helper/func";
@@ -7,11 +7,12 @@ import { FoodsPropsDefault, FoodsTypePropsDefault } from "../../types/foods";
 type FoodOption = { food_type?: string; text: string; calories: number };
 
 interface State {
-  toggleOption: boolean;
-  selectOption: string;
   foodOption: FoodOption[];
   foods: FoodsPropsDefault[];
   foods_type: FoodsTypePropsDefault[];
+  toggleOption: boolean;
+  selectOption: string;
+  toggle_drop_list: string;
 }
 
 class NutritionExpolrer extends Component<State> {
@@ -36,6 +37,7 @@ class NutritionExpolrer extends Component<State> {
     ],
     foods: [],
     foods_type: [],
+    toggle_drop_list: "",
   };
 
   componentDidMount(): void {
@@ -43,21 +45,28 @@ class NutritionExpolrer extends Component<State> {
   }
 
   async fetchDropList() {
-    let foods_ = [],
-        foods_type_ = []
-
     //  request api product
     let res = await ajaxGet(LOCAL_URL + "foods");
-    if(res.code == 1){
-      const {foods, foods_type} = res.data
-      foods_ = foods
-      foods_type_ = foods_type
+    if (res.code === 1) {
+      const { foods, food_type } = res.data;
+      // food_type.filter((item:FoodsTypePropsDefault, i:number) => {
+      //   item
+
+      // })
+      // let sum_food_type = ""
+
+      this.setState({ foods, foods_type: food_type });
     }
-      this.setState({foods:foods_,foods_type:foods_type_ })
+  }
+
+  toggleDropListFood(val: string) {
+    const { toggle_drop_list } = this.state;
+    let toggle = toggle_drop_list !== val ? val : "";
+    this.setState({ toggle_drop_list: toggle });
   }
 
   render() {
-    const { toggleOption, foodOption, selectOption } = this.state;
+    const st = this.state;
 
     return (
       <div className=" h-screen   mx-auto w-full">
@@ -70,25 +79,25 @@ class NutritionExpolrer extends Component<State> {
                 </span>
                 <div
                   className={`bg-white pt-3 ${
-                    toggleOption && "border-[1px] rounded-[8px]"
+                    st.toggleOption && "border-[1px] rounded-[8px]"
                   } `}
                 >
                   <div className="flex justify-center px-3 max-sm:px-2">
                     <button
                       type="button"
                       onClick={() =>
-                        this.setState({ toggleOption: !toggleOption })
+                        this.setState({ toggleOption: !st.toggleOption })
                       }
                       className="w-full flex items-center leading-[20px]"
                     >
                       <div className="grow text-start line-clamp-1 text-xl max-sm:text-base ">
-                        {selectOption}
+                        {st.selectOption}
                       </div>
                       <div className="px-3 py-1 ">
                         <IoChevronDownSharp
                           fontSize={22}
                           className={`transform duration-500 ease-in-out ${
-                            toggleOption ? "-rotate-180" : "-rotate-0"
+                            st.toggleOption ? "-rotate-180" : "-rotate-0"
                           }`}
                         />
                       </div>
@@ -107,9 +116,9 @@ class NutritionExpolrer extends Component<State> {
                     </button>
                   </div>
                   <div className=" mx-3 max-sm:mx-2 border-b-[#502314] border-b-[3px] max-sm:border-b-[2px] mt-3 mb-1" />
-                  {toggleOption ? (
+                  {st.toggleOption ? (
                     <div className="mb-1">
-                      {foodOption.map((item, i) => (
+                      {st.foodOption.map((item, i) => (
                         <div
                           key={i}
                           onClick={() =>
@@ -119,7 +128,7 @@ class NutritionExpolrer extends Component<State> {
                             })
                           }
                           className={`cursor-pointer text-xl max-sm:text-base px-3 max-sm:px-2 py-1 ${
-                            selectOption === item.text
+                            st.selectOption === item.text
                               ? "bg-[#d62300] text-[#f5ebdc] "
                               : "hover:bg-[#0000000a]"
                           }`}
@@ -139,57 +148,65 @@ class NutritionExpolrer extends Component<State> {
           </div>
         </div>
         <div className="container mx-auto px-3 pt-20">
-          <button
-            type="button"
-            className={
-              ` w-full flex items-center py-3 space-x-3`
-              // border-b-[1px] border-[#0000001a]
-            }
-          >
-            <IoChevronDownSharp
-              fontSize={19}
-              className="transform duration-500 ease-in-out delay-150 -rotate-90 -r otate-0 "
-            />
-            <div className="w-[64px]">
-              <img
-                src="https://cdn.sanity.io/images/czqk28jt/prod_bk_us/dca5fd3c67ce6be4572cd7e6ef612395514e35d9-1333x1333.png?w=150&q=80&fit=max&auto=format"
-                alt=""
-              />
-            </div>
-            <div className="Flame_Regular text-[24px] max-sm:text-[18px] flex  space-x-3 max-sm:space-x-2">
-              <span>Breakfast</span>
-              <span>(24)</span>
-            </div>
-          </button>
-
-          <div className=" grid grid-cols-3 max-md:grid-cols-1 gap-3">
-            {[
-              Array(0, 1 + 1).map((item, i) => {
-                return (
-                  <div
-                    className=" bg-white flex flex-col items-center justify-center p-6 rounded-[8px]"
-                    key={i}
-                  >
-                    <div className=" bg-white flex flex-col items-center justify-center p-6 max-lg:p-3 rounded-[8px] ">
-                      <div className=" w-[50%]">
-                        <img
-                          // src="https://cdn.sanity.io/images/czqk28jt/prod_bk_us/4b14eebc93b11734af0c17357f79868f628ca8c5-1333x1333.png?w=900&q=80&fit=max&auto=format"
-                          src="http://localhost:8000/api/image/breakfast"
-                          alt=""
-                        />
-                      </div>
-                      <span className="text-lg pt-0 Flame_Regular text-center">
-                        Fully Loaded Croissan'wich
-                      </span>
-                      <span className=" text-base pb-1 pt-2 FlameSans_Regular">
-                        714 Cal
-                      </span>
-                    </div>
+          {st.foods_type.map((item, i) => {
+            return (
+              <Fragment key={i}>
+                <button
+                  type="button"
+                  onClick={() => this.toggleDropListFood(item.food_name)}
+                  className={`w-full flex items-center py-3 space-x-3 border-b-[1px] border-[#0000001a]`}
+                >
+                  <IoChevronDownSharp
+                    fontSize={19}
+                    className={`transform duration-500 ease-in-out delay-150 -r otate-0 ${
+                      st.toggle_drop_list === item.food_name
+                        ? "-rotate-360"
+                        : "-rotate-90"
+                    }`}
+                  />
+                  <div className="w-[64px] flex items-center">
+                    <img
+                      src={`http://localhost:8000/api/image/${item.image}`}
+                      alt=""
+                    />
                   </div>
-                );
-              }),
-            ]}
-          </div>
+                  <div className="Flame_Regular text-[24px] max-sm:text-[18px] flex  space-x-3 max-sm:space-x-2">
+                    <span>{item.food_name}</span>
+                    <span>({item.total_food})</span>
+                  </div>
+                </button>
+                {st.toggle_drop_list === item.food_name && (
+                  <div className="grid grid-cols-3 max-md:grid-cols-1 gap-3">
+                    {st.foods.map((item, i) => {
+                      return (
+                        item.food_type === st.toggle_drop_list && (
+                          <div
+                            className=" bg-white flex flex-col items-center justify-center p-6 rounded-[8px]"
+                            key={i}
+                          >
+                            <div className=" bg-white flex flex-col items-center justify-center p-6 max-lg:p-3 rounded-[8px] ">
+                              <div className=" w-[50%]">
+                                <img
+                                  src={`http://localhost:8000/api/image/${item.image}`}
+                                  alt=""
+                                />
+                              </div>
+                              <span className="text-lg pt-0 Flame_Regular text-center">
+                                {item.food_name}
+                              </span>
+                              <span className=" text-base pb-1 pt-2 FlameSans_Regular">
+                                {item.calories}
+                              </span>
+                            </div>
+                          </div>
+                        )
+                      );
+                    })}
+                  </div>
+                )}
+              </Fragment>
+            );
+          })}
         </div>
       </div>
     );

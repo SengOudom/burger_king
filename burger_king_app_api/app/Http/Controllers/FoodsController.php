@@ -7,41 +7,27 @@ use Illuminate\Support\Facades\DB;
 
 class FoodsController extends Controller
 {
-    public function inputFoods(Request $request)
+    public function inputFoodsType(Request $request)
     {
-        $food_type = $request->food_type;
         $food_name = $request->food_name;
-        $more_info = $request->more_info;
-        $now_dt = date("Y-m-d H:i:s");
         $file = $request->file('file');
+        $now_dt = date("Y-m-d H:i:s");
 
-        $type = str_replace(' ', '#', strtolower($food_type));
-        $name = str_replace(' ', '#', $food_name);
+        $name = str_replace(' ', '_', $food_name);
 
-
-        if (strlen($type) == 0) {
-            return response()->json([
-                'code' => 0,
-                'message' => 'food type empty',
-            ]);
-        }
         if (strlen($name) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'food name empty',
             ]);
         }
-        if (strlen($more_info) == 0) {
-            $more_info = null;
-        }
-
-        $info = str_replace(' ', '#', $more_info);
-
-        $image = $this->storeImage($file, $food_name);
+        
+        $image_name = $name . "_ty";
+        $image = $this->storeImage($file, $image_name);
 
         if ($image) {
-            $values = ['food_name' => $name, 'food_type' => $type, 'image' => $image, 'more_info' => $info, 'status' => 1, 'created_at' => $now_dt];
-            $res = DB::table('product_food')->insert($values);
+            $data_insert = ['food_name' => $name, 'image' => $image, 'status' => 1, 'created_at' => $now_dt];
+            $res = DB::table('food_type')->insert($data_insert);
             if ($res) {
                 return response()->json([
                     'code' => 1,
@@ -59,11 +45,10 @@ class FoodsController extends Controller
                 'message' => 'failed store  image',
             ]);
         }
-
     }
 
 
-    public function inputFoodsType(Request $request)
+    public function inputFoods(Request $request)
     {
         $f_name = $request->food_name;
         $f_type = $request->food_type;
@@ -79,21 +64,10 @@ class FoodsController extends Controller
         $f_proteins = $request->proteins;
         $file = $request->file('file');
 
-        $more_info = $request->more_info;
         $now_dt = date("Y-m-d H:i:s");
 
-        $name = str_replace(' ', '#', $f_name);
-        $type = str_replace(' ', '#', strtolower($f_type));
-        $calories = str_replace(' ', '#', $f_calories);
-        $fat = str_replace(' ', '#', $f_fat);
-        $saturated_fat = str_replace(' ', '#', $f_saturated_fat);
-        $trams_fat = str_replace(' ', '#', $f_trams_fat);
-        $cholesterol = str_replace(' ', '#', $f_cholesterol);
-        $sodium = str_replace(' ', '#', $f_sodium);
-        $carbohydrates = str_replace(' ', '#', $f_carbohydrates);
-        $fiber = str_replace(' ', '#', $f_fiber);
-        $sugar = str_replace(' ', '#', $f_sugar);
-        $proteins = str_replace(' ', '#', $f_proteins);
+        $name = str_replace(' ', '_', $f_name);
+        $type = str_replace(' ', '_', $f_type);
 
         if (strlen($type) == 0) {
             return response()->json([
@@ -107,68 +81,65 @@ class FoodsController extends Controller
                 'message' => 'food name empty',
             ]);
         }
-        if (strlen($calories) == 0) {
+        if (strlen($f_calories) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'calories empty',
             ]);
         }
-        if (strlen($fat) == 0) {
+        if (strlen($f_fat) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'fat empty',
             ]);
         }
-        if (strlen($saturated_fat) == 0) {
+        if (strlen($f_saturated_fat) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'saturated fat empty',
             ]);
         }
-        if (strlen($trams_fat) == 0) {
+        if (strlen($f_trams_fat) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'trams fat empty',
             ]);
         }
-        if (strlen($cholesterol) == 0) {
+        if (strlen($f_cholesterol) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'cholesterol empty',
             ]);
         }
-        if (strlen($sodium) == 0) {
+        if (strlen($f_sodium) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'sodium empty',
             ]);
         }
-        if (strlen($carbohydrates) == 0) {
+        if (strlen($f_carbohydrates) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'carbohydrates empty',
             ]);
         }
-        if (strlen($fiber) == 0) {
+        if (strlen($f_fiber) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'fiber empty',
             ]);
         }
-        if (strlen($sugar) == 0) {
+        if (strlen($f_sugar) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'sugar empty',
             ]);
         }
-        if (strlen($proteins) == 0) {
+        if (strlen($f_proteins) == 0) {
             return response()->json([
                 'code' => 0,
                 'message' => 'proteins empty',
             ]);
-        }
-        if (strlen($more_info) == 0) {
-            $more_info = NULL;
         }
 
         $image = $this->storeImage($file, $f_name);
@@ -177,23 +148,22 @@ class FoodsController extends Controller
             $val = [
                 'food_name' => $name,
                 'food_type' => $type,
-                'calories' => $calories,
-                'fat' => $fat,
-                'saturated_fat' => $saturated_fat,
-                'trams_fat' => $trams_fat,
-                'cholesterol' => $cholesterol,
-                'sodium' => $sodium,
-                'carbohydrates' => $carbohydrates,
-                'fiber' => $fiber,
-                'sugar' => $sugar,
-                'proteins' => $proteins,
+                'calories' => $f_calories,
+                'fat' => $f_fat,
+                'saturated_fat' => $f_saturated_fat,
+                'trams_fat' => $f_trams_fat,
+                'cholesterol' => $f_cholesterol,
+                'sodium' => $f_sodium,
+                'carbohydrates' => $f_carbohydrates,
+                'fiber' => $f_fiber,
+                'sugar' => $f_sugar,
+                'proteins' => $f_proteins,
                 'image' => $image,
-                'more_info' => $more_info,
                 'created_at' => $now_dt,
                 'status' => 1
             ];
 
-            $res = DB::table('product_type')->insert($val);
+            $res = DB::table('food_bk')->insert($val);
             if ($res) {
                 return response()->json([
                     'code' => 1,
@@ -218,11 +188,19 @@ class FoodsController extends Controller
     public function requestFoods()
     {
         $foods = DB::table('food_bk')->where('status', 1)->get();
-        $food_type = DB::table('food_type')->where('status', 1)->get();
+        $food_type = DB::select("SELECT  a.id_food_type,  a.food_name, a.image,  a.status,  a.created_at,  a.update_at,  a.delete_at,  IFNULL(COUNT(b.food_type), 0) AS total_food  FROM food_type AS a  LEFT JOIN food_bk AS b  ON a.food_name = b.food_type  GROUP BY a.food_name, a.id_food_type, a.status, a.created_at, a.update_at, a.delete_at");
         
         if ($foods && $food_type) {
 
-        
+            foreach ($foods as $key => $item) {
+                $foods[$key]->food_name = str_replace('_', ' ', $item->food_name);
+                $foods[$key]->food_type = str_replace('_', ' ', $item->food_type);
+            }
+
+            foreach ($food_type as $key => $item) {
+                $food_type[$key]->food_name = str_replace('_', ' ', $item->food_name);
+            }
+
             $data = [
                 'foods' => $foods,
                 'food_type' => $food_type,
