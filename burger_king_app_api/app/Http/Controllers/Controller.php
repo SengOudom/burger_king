@@ -13,21 +13,55 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function storeImage($file, $name)
     {
-        if (strlen($name) !== 0) {
-            $image_name = str_replace(' ', '_', strtolower($name));
-            $disk = Storage::disk('local')->putFileAs(
-                'ImageProducts/',
-                $file,
-                $image_name . '.jpg',
-            );
-            if ($disk) {
-                return $image_name;
-            } else {
-                return response()->json([
-                    'code' => 0,
-                    'message' => 'failed in store'
-                ]);
-            }
+        if (empty($name) || !$file) {
+            return [
+                'code' => 0,
+                'message' => 'Invalid file or name'
+            ];
         }
+
+        $image_name = str_replace(' ', '_', strtolower($name)) . '.jpg';
+        $path = 'ImageProducts/';
+
+        $stored = Storage::disk('local')->putFileAs($path, $file, $image_name);
+
+        if ($stored) {
+            return [
+                'code' => 1,
+                'message' => 'Image stored successfully',
+                'image_name' => $image_name,
+            ];
+        }
+
+        return [
+            'code' => 0,
+            'message' => 'Failed to store image'
+        ];
+    }
+
+    public function deleteImage($name)
+    {
+        if (empty($name)) {
+            return [
+                'code' => 0,
+                'message' => 'Invalid image name'
+            ];
+        }
+
+        $image_name = str_replace(' ', '_', strtolower($name)) . '.jpg';
+        $path = 'ImageProducts/' . $image_name;
+
+        if (Storage::disk('local')->exists($path)) {
+            Storage::disk('local')->delete($path);
+            return [
+                'code' => 1,
+                'message' => 'Image deleted successfully'
+            ];
+        }
+
+        return [
+            'code' => 0,
+            'message' => 'Image not found'
+        ];
     }
 }

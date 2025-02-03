@@ -49,12 +49,6 @@ class NutritionExpolrer extends Component<State> {
     let res = await ajaxGet(LOCAL_URL + "foods");
     if (res.code === 1) {
       const { foods, food_type } = res.data;
-      // food_type.filter((item:FoodsTypePropsDefault, i:number) => {
-      //   item
-
-      // })
-      // let sum_food_type = ""
-
       this.setState({ foods, foods_type: food_type });
     }
   }
@@ -195,7 +189,7 @@ class NutritionExpolrer extends Component<State> {
                                 {item.food_name}
                               </span>
                               <span className=" text-base pb-1 pt-2 FlameSans_Regular">
-                                {item.calories}
+                                {item.calories} Cal
                               </span>
                             </div>
                           </div>
