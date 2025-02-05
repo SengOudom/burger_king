@@ -20,10 +20,11 @@ class Controller extends BaseController
             ];
         }
 
-        $image_name = str_replace(' ', '_', strtolower($name)) . '.jpg';
+        $image_name = str_replace(' ', '_', strtolower($name));
         $path = 'ImageProducts/';
+        $image_type = 'jpg';
 
-        $stored = Storage::disk('local')->putFileAs($path, $file, $image_name);
+        $stored = Storage::disk('local')->putFileAs($path, $file, $image_name . '.' . $image_type);
 
         if ($stored) {
             return [

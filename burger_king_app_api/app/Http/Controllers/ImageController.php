@@ -11,11 +11,10 @@ class ImageController extends Controller
 {
     public function requestImage($image)
     {
-        $content = Storage::get('ImageProducts/' . $image . '.jpg');
-        $mime = Storage::mimeType('ImageProducts/' . $image . '.jpg');
-        $response = Response::make($content, 200);
-        $response->header("Content-Type", $mime);
-        return $response;
+        $path = 'ImageProducts/' . $image . '.jpg';
+        $content = Storage::get($path);
+        $mime = Storage::mimeType($path);
+        return Response::make($content, 200)->header("Content-Type", $mime);
     }
 
 }

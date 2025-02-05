@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\isNull;
+
 class FoodsController extends Controller
 {
     public function inputFoodsType(Request $request)
@@ -65,9 +67,9 @@ class FoodsController extends Controller
             'sugar',
             'proteins',
         ];
-
+        // return response()->json($request);
         foreach ($required_fields as $field) {
-            if (empty($request->$field)) {
+            if (!isset($request->$field)) {
                 return response()->json([
                     'code' => 0,
                     'message' => ucfirst(str_replace('_', ' ', $field)) . ' is required.'
@@ -111,7 +113,7 @@ class FoodsController extends Controller
 
     public function requestFoods()
     {
-        $foods = DB::table('food_bk')->where('status', 1)->get();
+        $foods = DB::table('food_bk')->where('status', 1)->orderBy('created_at', 'desc')->get();
         $food_type = DB::select("SELECT a.id_food_type, a.food_name, a.image, a.status, a.created_at, a.update_at, a.delete_at, IFNULL(COUNT(b.food_type), 0) AS total_food FROM food_type AS a LEFT JOIN food_bk AS b ON a.food_name = b.food_type GROUP BY a.food_name, a.id_food_type, a.status, a.created_at, a.update_at, a.delete_at");
 
         foreach ($foods as $food) {
