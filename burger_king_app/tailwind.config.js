@@ -12,6 +12,17 @@ module.exports = {
       'lg': '1440px',
       // => @media (min-width: 1440px) { ... }
     },
+    extend: {
+      animation: {
+        fade: 'fadeOut 0.3s ease-in-out',
+      },
+      keyframes: {
+        fadeOut: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+    }
   },
   plugins: [
     require('tailwindcss-animated')
