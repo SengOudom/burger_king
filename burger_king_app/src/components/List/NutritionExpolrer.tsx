@@ -5,36 +5,45 @@ import { ajaxGet } from "../../helper/func";
 import { FoodsPropsDefault, FoodsTypePropsDefault } from "../../types/foods";
 import { isEmpty } from "lodash";
 
-type FoodOption = { food_type?: string; text: string; calories: number };
+type FoodOption = { food_type: string; text: string; calories: number };
 
 interface State {
   foodOption: FoodOption[];
   foods: FoodsPropsDefault[];
   foods_type: FoodsTypePropsDefault[];
-  toggleOption: boolean;
-  selectOption: string;
+  selectOption: {
+    text: string;
+    toggle: boolean;
+    calories: number;
+    food_type: string;
+  };
   toggle_drop_list: string;
   modal_nutritional_info?: any;
 }
 
 class NutritionExpolrer extends Component<State> {
   state: State = {
-    toggleOption: false,
-    selectOption: "Select a filter...",
+    selectOption: {
+      text: "Select a filter...",
+      calories: 0,
+      toggle: false,
+      food_type: "ALL",
+    },
     foodOption: [
       {
         text: "Options under 300 calories",
         calories: 300,
+        food_type: "All",
       },
       {
         text: "Flame grilled burgers under 500 calories",
         calories: 500,
-        food_type: "burgers",
+        food_type: "Flame Grilled Burgers",
       },
       {
         text: "Chicken and more under 500 calories",
         calories: 500,
-        food_type: "chicken",
+        food_type: "Chicken & Fish",
       },
     ],
     foods: [],
@@ -64,7 +73,38 @@ class NutritionExpolrer extends Component<State> {
 
   render() {
     const st = this.state;
-    console.log(st.modal_nutritional_info)
+    const { foods_type, selectOption, foods } = st;
+
+    const Foods = foods.filter((item) => {
+      let FoodType = item.food_type === selectOption.food_type;
+
+      if (selectOption.food_type === "All") {
+        FoodType = true;
+      }
+
+      return (
+        (FoodType && Number(item.calories) < Number(selectOption.calories)) ||
+        selectOption.text === "Select a filter..."
+      );
+    });
+
+    const counts = Foods.reduce((acc: Map<string, number>, food) => {
+      acc.set(food.food_type, (acc.get(food.food_type) || 0) + food.status);
+      return acc;
+    }, new Map<string, number>());
+
+    const total_food = Array.from(counts, ([food_type, total_food]) => ({
+      food_type,
+      total_food,
+    }));
+
+    const FoodsType = foods_type.map((item) => {
+      const matched = total_food.find(
+        (item_t) => item.food_name === item_t.food_type
+      );
+      return { ...item, total_food: matched ? matched.total_food : 0 };
+    });
+
     return (
       <Fragment>
         <div className="h-screen mx-auto w-full">
@@ -77,25 +117,32 @@ class NutritionExpolrer extends Component<State> {
                   </span>
                   <div
                     className={`bg-white pt-3 ${
-                      st.toggleOption && "border-[1px] rounded-[8px]"
+                      st.selectOption.toggle && "border-[1px] rounded-[8px]"
                     } `}
                   >
                     <div className="flex justify-center px-3 max-sm:px-2">
                       <button
                         type="button"
                         onClick={() =>
-                          this.setState({ toggleOption: !st.toggleOption })
+                          this.setState({
+                            selectOption: {
+                              ...selectOption,
+                              toggle: !st.selectOption.toggle,
+                            },
+                          })
                         }
                         className="w-full flex items-center leading-[20px]"
                       >
                         <div className="grow text-start line-clamp-1 text-xl max-sm:text-base ">
-                          {st.selectOption}
+                          {st.selectOption.text}
                         </div>
                         <div className="px-3 py-1 ">
                           <IoChevronDownSharp
                             fontSize={22}
                             className={`transform duration-500 ease-in-out ${
-                              st.toggleOption ? "-rotate-180" : "-rotate-0"
+                              st.selectOption.toggle
+                                ? "-rotate-180"
+                                : "-rotate-0"
                             }`}
                           />
                         </div>
@@ -104,8 +151,10 @@ class NutritionExpolrer extends Component<State> {
                         type="button"
                         onClick={() =>
                           this.setState({
-                            selectOption: "Select a filter...",
-                            toggleOption: false,
+                            selectOption: {
+                              text: "Select a filter...",
+                              toggle: false,
+                            },
                           })
                         }
                         className="px-3 border-l-[1px] border-[#0000001a]"
@@ -114,19 +163,19 @@ class NutritionExpolrer extends Component<State> {
                       </button>
                     </div>
                     <div className=" mx-3 max-sm:mx-2 border-b-[#502314] border-b-[3px] max-sm:border-b-[2px] mt-3 mb-1" />
-                    {st.toggleOption ? (
+                    {st.selectOption.toggle ? (
                       <div className="mb-1">
                         {st.foodOption.map((item, i) => (
                           <div
                             key={i}
+                            // onClick={() => this.selectOptionFood(item)}
                             onClick={() =>
                               this.setState({
-                                selectOption: item.text,
-                                toggleOption: false,
+                                selectOption: { ...item, toggle: false },
                               })
                             }
                             className={`cursor-pointer text-xl max-sm:text-base px-3 max-sm:px-2 py-1 ${
-                              st.selectOption === item.text
+                              st.selectOption.text === item.text
                                 ? "bg-[#d62300] text-[#f5ebdc] "
                                 : "hover:bg-[#0000000a]"
                             }`}
@@ -146,13 +195,17 @@ class NutritionExpolrer extends Component<State> {
             </div>
           </div>
           <div className="container mx-auto px-3 pt-20">
-            {st.foods_type.map((item, i) => {
+            {FoodsType.map((item, i) => {
+              const check_total_f = item.total_food === 0;
               return (
                 <Fragment key={i}>
                   <button
                     type="button"
+                    disabled={check_total_f}
                     onClick={() => this.toggleDropListFood(item.food_name)}
-                    className={`w-full flex items-center py-3 space-x-3 border-b-[1px] border-[#0000001a]`}
+                    className={`w-full flex items-center py-3 space-x-3 border-b-[1px] border-[#0000001a] ${
+                      check_total_f && "text-[#0000008c]"
+                    }`}
                   >
                     <IoChevronDownSharp
                       fontSize={19}
@@ -165,17 +218,23 @@ class NutritionExpolrer extends Component<State> {
                     <div className="w-[64px] flex items-center">
                       <img
                         src={`http://localhost:8000/api/image/${item.image}`}
-                        alt=""
+                        alt={item.image}
+                        className={check_total_f ? "opacity-50" : "opacity-100"}
                       />
                     </div>
-                    <div className="Flame_Regular text-[24px] max-sm:text-[18px] flex  space-x-3 max-sm:space-x-2">
-                      <span>{item.food_name}</span>
-                      <span>({item.total_food})</span>
+                    <div className="flex flex-col">
+                      <div className="Flame_Regular text-[24px] max-sm:text-[18px] flex  space-x-3 max-sm:space-x-2">
+                        <span>{item.food_name}</span>
+                        <span>({item.total_food})</span>
+                      </div>
+                      <span className="mt-0 text-[13px] max-sm:text-[12px] FlameSans_Regular">
+                        No items fit your search criteria
+                      </span>
                     </div>
                   </button>
                   {st.toggle_drop_list === item.food_name && (
                     <div className="grid grid-cols-3 max-md:grid-cols-1 gap-3">
-                      {st.foods.map((item, i) => {
+                      {Foods.map((item, i) => {
                         return (
                           item.food_type === st.toggle_drop_list && (
                             <div
