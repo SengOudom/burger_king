@@ -22,6 +22,15 @@ class FoodsController extends Controller
             ]);
         }
 
+        $existing_food = DB::table('food_type')->where('food_name', $food_name)->exists();
+
+        if ($existing_food) {
+            return response()->json([
+                'code' => 0,
+                'message' => "Food name already exists."
+            ]);
+        }   
+
         $name = str_replace([' ', '®'], ['_', '-registered'], $food_name);
         $image_name = $name . "_ty";
         $image_response = $this->storeImage($file, $image_name);
@@ -80,6 +89,15 @@ class FoodsController extends Controller
         $name = str_replace([' ', '®'], ['_', '-registered'], $request->food_name);
         $type = str_replace([' ', '®'], ['_', '-registered'], $request->food_type);
         $now_dt = now();
+
+        $existing_food = DB::table('food_bk')->where('food_name', $name)->exists();
+
+        if ($existing_food) {
+            return response()->json([
+                'code' => 0,
+                'message' => "Food name already exists."
+            ]);
+        } 
 
         $image_response = $this->storeImage($request->file('file'), $name);
 
