@@ -6,6 +6,7 @@ import OfferTerms from "./components/List/OfferTerms";
 import NutritionExpolrer from "./components/List/NutritionExpolrer";
 import DeliveryTerms from "./components/List/DeliveryTerms";
 import FranchiseBk from "./components/List/FranchiseBk";
+import Faq from "./components/List/Faq";
 
 export default function Router() {
   return (
@@ -18,6 +19,8 @@ export default function Router() {
       <Route path="/nutrition-explorer" element={<NutritionExpolrer />} />
       <Route path="/terms" element={<OfferTerms />} />
       <Route path="/delivery-terms" element={<DeliveryTerms />} />
+      <Route path="/support" element={<>support</>} />
+      <Route path="/faq" element={<Faq />} />
     </Routes>
   );
 }
