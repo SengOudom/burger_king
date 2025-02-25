@@ -32,9 +32,9 @@ class Account extends React.Component<MyProps, Mystate> {
       {
         name: "Support",
         li: [
-          { name: "Contact", link: "/" },
-          { name: "FAQ", link: "/" },
-          { name: "Crown Card", link: "/" },
+          { name: "Contact", link: "/support" },
+          { name: "FAQ", link: "/faq" },
+          { name: "Crown Card", link: "/crown-card-faq" },
           { name: "Restaurant Survey", link: "/" },
         ],
       },
