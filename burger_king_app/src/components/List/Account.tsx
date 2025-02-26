@@ -35,13 +35,13 @@ class Account extends React.Component<MyProps, Mystate> {
           { name: "Contact", link: "/support" },
           { name: "FAQ", link: "/faq" },
           { name: "Crown Card", link: "/crown-card-faq" },
-          { name: "Restaurant Survey", link: "/" },
+          { name: "Restaurant Survey", link: "https://www.mybkexperience.com/" },
         ],
       },
       {
         name: "Legal",
         li: [
-          { name: "Tearms of Service", link: "/" },
+          { name: "Tearms of Service", link: "/terms-of-service" },
           { name: "Mobile Order and Payment Terms", link: "/" },
           { name: "Privacy Policy", link: "/" },
           { name: "Trademarks", link: "/" },
