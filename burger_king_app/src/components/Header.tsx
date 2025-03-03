@@ -16,6 +16,11 @@ export default function Header() {
     "/franchise",
     "/delivery-terms",
     "/nutrition-explorer",
+    "/support",
+    "/faq",
+    "/crown-card-faq",
+    "/terms-of-service",
+    "/mobile-order-terms",
   ];
 
   const ProviderIcon = provider.includes(pathname) ? (

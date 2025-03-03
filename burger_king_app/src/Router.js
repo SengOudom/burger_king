@@ -9,6 +9,8 @@ import FranchiseBk from "./components/List/FranchiseBk";
 import Faq from "./components/List/Faq";
 import CrownCardFaq from "./components/List/CrownCardFaq";
 import TermsOfService from "./components/List/TermsOfService";
+import MobileOrderTerms from "./components/List/MobileOrderTerms";
+import PrivacyPolicy from "./components/List/PrivacyPolicy";
 
 export default function Router() {
   return (
@@ -25,6 +27,8 @@ export default function Router() {
       <Route path="/faq" element={<Faq />} />
       <Route path="/crown-card-faq" element={<CrownCardFaq />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
+      <Route path="/mobile-order-terms" element={<MobileOrderTerms />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
     </Routes>
   );
 }

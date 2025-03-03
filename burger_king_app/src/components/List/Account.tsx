@@ -42,8 +42,8 @@ class Account extends React.Component<MyProps, Mystate> {
         name: "Legal",
         li: [
           { name: "Tearms of Service", link: "/terms-of-service" },
-          { name: "Mobile Order and Payment Terms", link: "/" },
-          { name: "Privacy Policy", link: "/" },
+          { name: "Mobile Order and Payment Terms", link: "/mobile-order-terms" },
+          { name: "Privacy Policy", link: "/privacy-policy" },
           { name: "Trademarks", link: "/" },
           { name: "Accessibility", link: "/accessibility" },
           { name: "Unsolicited Idea Policy ", link: "/" },

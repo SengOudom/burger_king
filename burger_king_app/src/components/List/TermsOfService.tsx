@@ -689,7 +689,329 @@ export default function TermsOfService() {
           claims brought by multiple claimants represented by the same or
           coordinated counsel will be aggregated.
         </div>
-        <div className="py-3">If we start an arbitration against you, we will pay all filing fees.</div>
+        <div className="py-3">
+          If we start an arbitration against you, we will pay all filing fees.
+        </div>
+        <div className="py-3">
+          Arbitration costs do not include your attorneys’ fees and expenses if
+          you choose to be represented by an attorney. If you choose to be
+          represented by an attorney, you will pay your own attorneys’ fees and
+          costs unless the applicable law provides otherwise.
+        </div>
+        <div className="py-3">
+          4. Special Procedures for Coordinated Filings
+        </div>
+        <div className="py-3">
+          If 25 or more Disputes are initiated with the arbitrator that raise
+          similar claims, and counsel for the claimants are the same or
+          coordinated, these will be considered “Coordinated Cases” and the
+          arbitration provider will treat them as such, including with respect
+          to its fee schedule for mass arbitration filings. We will pay only our
+          share of arbitration fees for Coordinated Cases; the claimants will be
+          responsible for their share of those fees. Applicable statutes of
+          limitations will be tolled for all claimants once they have provided
+          compliant Notices of Dispute to us, but demands for arbitration in
+          Coordinated Cases shall only be filed with the arbitration provider as
+          permitted by the bellwether process set forth below.
+        </div>
+        <div className="py-3">
+          Once all Notices of Dispute have been provided to us for Coordinated
+          Cases, counsel for claimants and counsel for us shall confer in good
+          faith regarding the number of cases that should proceed as
+          bellwethers, to allow each side to test the merits of its arguments,
+          before the remainder of claims may be filed with the arbitration
+          provider. Any number chosen must be an even number so as to allow each
+          side to designate half of the cases selected for bellwether trials. If
+          counsel for claimants and for us do not agree on the number of
+          bellwethers, the number shall be chosen by the arbitration provider as
+          an administrative matter (or, in the arbitration provider’s
+          discretion, by a process arbitrator). Factors that the arbitration
+          provider may consider in making this decision include the complexity
+          of the dispute and differences in facts or applicable laws among
+          various claims. Once the number of bellwethers is fixed, by agreement
+          or by the arbitration provider, each side shall each select half that
+          number from among the claimants who have provided compliant Notices of
+          Dispute, and only those chosen claims may be filed with the
+          arbitration provider. You agree that if your case is among Coordinated
+          Cases filed against us, resolution of your personal claim might be
+          delayed by this bellwether process. Failure by a party or the
+          arbitration provider to comply with this bellwether process, such as
+          by filing or allowing the filing of arbitration demands for
+          Coordinated Cases other than those selected to proceed as bellwethers,
+          is an issue to be decided by a court, which may enjoin actions
+          inconsistent with the bellwether process.
+        </div>
+        <div className="py-3">
+          A single arbitrator shall preside over each Coordinated Case chosen
+          for a bellwether proceeding, and only one Coordinated Case may be
+          assigned to each arbitrator as part of a bellwether process unless the
+          parties agree otherwise.
+        </div>
+        <div className="py-3">
+          Once all bellwether trials have concluded (or sooner if the counsel
+          for the claimants and us agree), the parties must engage in a single
+          mediation of all remaining cases, with each side paying half the
+          applicable mediation fee. Counsel for claimants and for us must agree
+          on a mediator within 30 days after the conclusion of the last
+          bellwether trial. If counsel for claimants and for us cannot agree on
+          a mediator within 30 days, the arbitration provider will appoint a
+          mediator as an administrative matter. Counsel for the claimants and
+          for us will cooperate for the purpose of ensuring that the mediation
+          is scheduled as quickly as practicable after the mediator is
+          appointed.
+        </div>
+        <div className="py-3">
+          If the mediation does not yield a global resolution, this arbitration
+          requirement shall no longer apply to claimants in Coordinated Cases
+          who provided compliant Notices of Dispute but whose claims were not
+          resolved in bellwether proceedings. Their cases may be filed only in
+          the state courts in Miami-Dade County, Florida, or if federal
+          jurisdiction exists, in the United States District Court for the
+          Southern District of Florida, and you consent as part of these Terms
+          to venue such cases exclusively in these courts. Nothing in this
+          paragraph shall be construed as prohibiting either you or us from
+          removing a case from state to federal court if removal is allowed
+          under applicable law. To the extent you are asserting the same claims
+          as other persons and are represented by common or coordinated counsel,
+          you agree to waive any objection that the joinder of all such persons
+          is impracticable. If a formerly arbitrable Dispute is brought in
+          court, claimants may seek class treatment, but to the fullest extent
+          allowed by applicable law, the classes sought may comprise only the
+          claimants in the Coordinated Cases who provided compliant Notices of
+          Dispute, and we reserve the right to contest class certification at
+          any stage of the litigation and on any available basis.
+        </div>
+        <div className="py-3">
+          A court shall have authority to enforce this bellwether process and
+          may enjoin the filing of lawsuits or arbitration demands not made in
+          compliance with it.
+        </div>
+        <div className="py-3 Flame_Regular font-medium">
+          D. Continuation In Effect
+        </div>
+        <div className="py-3">
+          The dispute resolution process set forth in this agreement survives
+          the termination of any other agreement between you and us.
+        </div>
+        <div className="py-3 Flame_Regular font-medium">
+          E. Future Terms Changes
+        </div>
+        <div className="py-3 Flame_Regular font-medium">
+          E. Future Terms Changes
+        </div>
+        <div className="py-3">
+          Although we may revise these dispute resolution terms in our
+          discretion, we do not have the right to alter this agreement or the
+          arbitration rules specified herein with respect to any Dispute once
+          that Dispute arises, if such change would make arbitration procedures
+          materially less favorable to the claimant. Whether changed procedures
+          are less favorable to the claimant is an issue to be decided by the
+          arbitrator, and if multiple claimants are proceeding in Coordinated
+          Cases, the applicability of revised terms to the Coordinated Cases
+          will be decided by the arbitration provider as a process matter.
+        </div>
+        <div className="py-3 Flame_Regular font-medium">
+          F. Class Action Waiver
+        </div>
+        <div className="py-3">
+          To the maximum extent permitted by applicable law, for any case not
+          subject to the requirement to arbitrate (except to the limited extent
+          discussed above for Coordinated Cases), you and we will only bring
+          disputes, claims, or controversies between us in an individual
+          capacity and shall not: • seek to bring, join, or participate in any
+          class or representative action, collective or class-wide arbitration,
+          or any other action where another individual or entity acts in a
+          representative capacity (like private attorney general actions); or•
+          consolidate or combine individual proceedings or permit another to do
+          so without the express consent of all parties to these Terms.
+        </div>
+        <div className="py-3 Flame_Regular font-medium">G. Severability</div>
+        <div className="py-3">
+          If all or any provision of this Section 13 is found invalid,
+          unenforceable, or illegal, then you and we agree that the provision
+          will be severed, and the rest of these terms shall remain in effect
+          and be construed as if any severed provision had not been included.
+          The sole exception is that if the prohibition on class arbitrations is
+          found invalid, unenforceable, or illegal, you and we agree that this
+          entire agreement to arbitrate will be void and unenforceable and any
+          dispute will be resolved in court subject to the venue and choice of
+          law clauses specified herein.
+        </div>
+        <div className="py-3 Flame_Regular font-medium">
+          H. Your 30-Day Right to Opt Out
+        </div>
+        <div className="py-3">
+          You have the right to opt out of and not to be bound by the Binding
+          Individual Arbitration provisions set forth in these Terms. To
+          exercise this right, you must send written notice of your decision to
+          the address for RBI specified above. Your notice must include your
+          name, mailing address, and email address associated with your account
+          with us, and state that you do not wish to be bound by the Binding
+          Individual Arbitration provisions set forth in these Terms. TO BE
+          EFFECTIVE, THIS NOTICE MUST BE POSTMARKED OR DEPOSITED WITHIN 30 DAYS
+          OF THE DATE ON WHICH YOU FIRST ACCEPTED THESE TERMS UNLESS A LONGER
+          PERIOD IS REQUIRED BY APPLICABLE LAW; OTHERWISE YOU WILL BE BOUND TO
+          ARBITRATE DISPUTES IN ACCORDANCE WITH THIS SECTION. You are
+          responsible for ensuring that we receive your opt-out notice, so you
+          may wish to send it by a means that provides for a delivery receipt.
+          If you opt out of these provisions, we will not be bound by them with
+          respect to disputes with you.
+        </div>
+        <div className="text-[18px] py-3 pt-12 Flame_Regular font-medium">
+          14. DISCLAIMER OF WARRANTIES
+        </div>
+        <div className="py-3">
+          ALL OF THE PROVISIONS OF THIS PARAGRAPH APPLY TO THE FULLEST EXTENT
+          ALLOWED BY APPLICABLE LAW:
+        </div>
+        <div className="py-3">
+          YOUR USE OF THE SERVICES IS ENTIRELY AT YOUR OWN RISK. WE MAKE NO
+          REPRESENTATIONS, WARRANTIES OR CONDITIONS ABOUT THE SERVICES,
+          INCLUDING, WITHOUT LIMITATION, THE OPERATION OF THE SERVICES OR THE
+          INFORMATION, MATERIALS, GOODS, OR SERVICES APPEARING OR OFFERED ON THE
+          SERVICES OR WITH RESPECT TO ANY WEBSITES OR SERVICES LINKED FROM THE
+          SERVICES. THE SERVICES ARE PROVIDED “AS IS”, “WITH ALL FAULTS,” AND
+          “AS AVAILABLE.” WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, WE
+          DISCLAIM ALL WARRANTIES AND CONDITIONS, EXPRESS, STATUTORY, OR
+          IMPLIED, INCLUDING BUT NOT LIMITED TO (I) THE WARRANTIES OF
+          MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, WORKMANLIKE EFFORT,
+          TITLE, QUIET ENJOYMENT, NO LIENS, AND NO ENCUMBRANCES; (II) THE
+          WARRANTIES AGAINST INFRINGEMENT, MISAPPROPRIATION, OR VIOLATION OF ANY
+          INTELLECTUAL PROPERTY OR PROPRIETARY RIGHTS OF ANY PERSON OR ENTITY;
+          (III) WARRANTIES ARISING THROUGH COURSE OF DEALING OR USAGE IN TRADE;
+          AND (IV) THE WARRANTIES RELATING TO THE ACCURACY, RELIABILITY,
+          CORRECTNESS, OR COMPLETENESS OF DATA OR CONTENT MADE AVAILABLE ON THE
+          SERVICES OR OTHERWISE BY RBI. FURTHER, THERE IS NO WARRANTY THAT THE
+          SERVICES WILL MEET YOUR NEEDS OR REQUIREMENTS OR THE NEEDS OR
+          REQUIREMENTS OF ANY OTHER PERSON OR ENTITY OR THE NEEDS OR
+          REQUIREMENTS SET FORTH IN ANY DOCUMENTATION. WE MAKE NO WARRANTIES OR
+          CONDITIONS, EXPRESS, STATUTORY, OR IMPLIED, THAT THE SERVICES,
+          INCLUDING, WITHOUT LIMITATION, THE CONTENT, FUNCTIONS, OR MATERIALS
+          CONTAINED IN THE SERVICES, WILL BE TIMELY, SECURE, ACCURATE,
+          ERROR-FREE, COMPLETE, UP-TO-DATE, FREE OF VIRUSES, OR UNINTERRUPTED.
+          RBI EXPRESSLY DISCLAIMS ANY AND ALL REPRESENTATIONS, WARRANTIES,
+          CONDITIONS, AND LIABILITIES IN CONNECTION WITH ANY USER CONTENT OR RBI
+          CONTENT. NO INFORMATION MADE AVAILABLE BY OR ON BEHALF OF RBI SHALL
+          CREATE ANY WARRANTY OR CONDITION.
+        </div>
+        <div className="py-3">
+          IF APPLICABLE LAW DOES NOT ALLOW THE EXCLUSION OF SOME OR ALL OF THE
+          ABOVE IMPLIED OR STATUTORY WARRANTIES TO APPLY TO YOU, THE ABOVE
+          EXCLUSIONS WILL APPLY TO YOU TO THE FULLEST EXTENT PERMITTED BY
+          APPLICABLE LAW.
+        </div>
+        <div className="text-[18px] py-3 pt-12 Flame_Regular font-medium">
+          15. EXCLUSIVE REMEDY AND LIMITATION OF LIABILITY
+        </div>
+        <div className="py-3">
+          ALL OF THE PROVISIONS OF THIS PARAGRAPH APPLY TO THE FULLEST EXTENT
+          ALLOWED BY APPLICABLE LAW:
+        </div>
+        <div className="py-3">
+          NONE OF RBI, ITS AFFILIATES, OR ANY PARTY INVOLVED IN OPERATING,
+          CREATING, PRODUCING, OR DELIVERING THE SERVICES SHALL BE LIABLE FOR
+          DAMAGES OR LOSSES INCLUDING WITHOUT LIMITATION DIRECT, INCIDENTAL,
+          CONSEQUENTIAL, INDIRECT, SPECIAL, OR PUNITIVE DAMAGES OR LOST PROFITS
+          ARISING OUT OF THE TERMS OR YOUR ACCESS, USE, MISUSE, OR INABILITY TO
+          USE THE SERVICES, INCLUDING WITHOUT LIMITATION ANY RBI CONTENT OR USER
+          CONTENT, OR ANY SITES LINKED FROM THE SERVICES, HOWEVER CAUSED,
+          WHETHER IN CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR OTHERWISE,
+          EVEN IF RBI HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, OR IN
+          CONNECTION WITH ANY FAILURE OF PERFORMANCE, ERROR, OMISSION,
+          INTERRUPTION, DEFECT, DELAY IN OPERATION OR TRANSMISSION, COMPUTER
+          VIRUS, LINE OR SYSTEM FAILURE, OR OTHER TECHNOLOGICALLY HARMFUL
+          MATERIAL THAT MAY INFECT YOUR DEVICE, DATA, OR OTHER PROPRIETARY
+          MATERIAL DUE TO YOUR USE OF OUR SERVICES OR TO YOUR DOWNLOADING OF ANY
+          CONTENT ON IT OR ON ANY WEBSITE LINKED TO IT.{" "}
+        </div>
+        <div className="py-3">
+          IF APPLICABLE LAW DOES NOT PERMIT THE EXCLUSION OF INCIDENTAL OR
+          CONSEQUENTIAL DAMAGES, THEN RBI’S LIABILITY FOR SUCH DAMAGES SHALL BE
+          LIMITED TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW. ANY CLAIM
+          AGAINST US SHALL BE LIMITED TO THE AMOUNT YOU PAID, IF ANY, FOR USE OF
+          THE SERVICES.
+        </div>
+        <div className="text-[18px] py-3 pt-12 Flame_Regular font-medium">
+          16. INDEMNIFICATION
+        </div>
+        <div className="py-3">
+          To the fullest extent allowed by applicable law, you agree to
+          indemnify, hold harmless, and defend RBI, its affiliates and
+          licensors, any party involved in operating, creating, producing, or
+          delivering the Services, and each of their respective officers,
+          owners, directors, shareholders, contractors, agents, employees,
+          general and limited partners, successors, and assigns from and against
+          any and all demands, claims, damages, liabilities, judgments, fines,
+          interest, penalties, losses, costs, expenses, and harms, including
+          without limitation reasonable attorneys’ fees and fees of other
+          professional advisers, arising out of or in connection with (i) your
+          use of the Services, (ii) your online conduct in connection with the
+          Services, (iii) your (or anyone acting under your password or
+          username) violation or breach of these Terms, (iv) your failure to
+          comply with any applicable laws or regulations in connection with the
+          Services, (v) your negligence, willful misconduct, or violations of
+          the intellectual property or other rights of any person in connection
+          with the Services, or (vi) any of your dealings or transactions with
+          other persons, persons or third party platforms resulting from use of
+          the Services. You shall not settle any such claim without the prior
+          written consent of RBI. These obligations will survive any termination
+          of these Terms.
+        </div>
+
+        <div className="text-[18px] py-3 pt-12 Flame_Regular font-medium">
+          17. INTEGRATION, SEVERABILITY AND WAIVER
+        </div>
+        <div className="py-3">
+          These Terms and all other legal notices, statements or terms and
+          conditions posted or made available to you on the Services constitute
+          the entire agreement between RBI and you. In the event any provision
+          of these Terms is held unenforceable, it will not affect the
+          enforceability of the remaining provisions and will be replaced by an
+          enforceable provision that comes closest to the intention underlying
+          the unenforceable provision. Our failure to enforce any provisions of
+          the Terms or respond to a breach by you or other parties shall not in
+          any way waive our right to enforce subsequently any terms or
+          conditions of the Terms or to act with respect to similar breaches.
+        </div>
+        <div className="text-[18px] py-3 pt-12 Flame_Regular font-medium">
+          18. NOTICE FOR CALIFORNIA CONSUMERS
+        </div>
+        <div className="py-3">
+          Under California Civil Code Section 1789.3, California users of the
+          Services are entitled to the following specific consumer rights
+          notice: The Complaint Assistance Unit of the Division of Consumer
+          Services of the California Department of Consumer Affairs may be
+          contacted in writing at 1625 North Market Blvd., Suite N 112,
+          Sacramento CA 95834, or by telephone at (916) 445-1254 or (800)
+          952-5210.
+        </div>
+        <div className="text-[18px] py-3 pt-12 Flame_Regular font-medium">
+          19. CONTACT INFORMATION
+        </div>
+        <div className="py-3">
+          Please direct any questions, complaints, or comments related to the
+          Services to privacy@rbi.com.
+        </div>
+        <div className="text-[18px] py-3 pt-12 Flame_Regular font-medium">
+          20. OPT-OUT INSTRUCTIONS
+        </div>
+        <div className="py-3">
+          If you no longer wish to participate in the Royal Perks Program, click
+          <Link
+            to="https://privacyportal-eu-cdn.onetrust.com/dsarwebform/7ae425dd-1c76-46b0-a1b4-2422a364fae3/draft/1d4481aa-204a-4cb5-a40a-82e4369d16b2.html"
+            className="text-[#d62300]"
+          >
+            HERE
+          </Link>{" "}
+          to request deletion of your account and data. You may also submit your
+          request to RBI’s Privacy Officer at{" "}
+          <Link to="" className="text-[#d62300]">
+            privacy@rbi.com
+          </Link>
+          , or you may contact us at 1-866-394-2493. Currently, opting out of
+          the Royal Perks Program will require deletion of your account. Please
+          note that an account is required to place a mobile order.
+        </div>
       </div>
     </>
   );
