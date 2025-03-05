@@ -11,6 +11,12 @@ import CrownCardFaq from "./components/List/CrownCardFaq";
 import TermsOfService from "./components/List/TermsOfService";
 import MobileOrderTerms from "./components/List/MobileOrderTerms";
 import PrivacyPolicy from "./components/List/PrivacyPolicy";
+import Trademarks from "./components/List/Trademarks";
+import Accessibility from "./components/List/Accessibility";
+import UnsolicitedIdeaPolicy from "./components/List/UnsolicitedIdeaPolicy";
+import Attributions from "./components/List/Attributions";
+import TermsConditionsRewards from "./components/List/TermsConditionsRewards";
+import Diagnostics from "./components/List/Diagnostics";
 
 export default function Router() {
   return (
@@ -29,6 +35,12 @@ export default function Router() {
       <Route path="/terms-of-service" element={<TermsOfService />} />
       <Route path="/mobile-order-terms" element={<MobileOrderTerms />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/trademarks" element={<Trademarks />} />
+      <Route path="/accessibility" element={<Accessibility />} />
+      <Route path="/unsolicited-idea-policy" element={<UnsolicitedIdeaPolicy />} />
+      <Route path="/attributions" element={<Attributions />} />  
+      <Route path="/terms-conditions-rewards" element={<TermsConditionsRewards />} />  
+      <Route path="/diagnostics" element={<Diagnostics />} />  
     </Routes>
   );
 }

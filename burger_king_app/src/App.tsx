@@ -5,8 +5,14 @@ import Footer from "./components/Footer";
 
 export default function App() {
   const pathname = window.location.pathname;
-  const provider = ["/privacy-policy"];
-  const CheckProvider = provider.includes(pathname);
+  const provider = [
+    "/privacy-policy",
+    "/attributions",
+    "/terms-conditions-rewards",
+    "/diagnostics",
+  ];
+
+  const CheckProvider = provider.includes(pathname.toLowerCase());
 
   return (
     <BrowserRouter>

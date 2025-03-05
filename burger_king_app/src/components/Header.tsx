@@ -21,6 +21,9 @@ export default function Header() {
     "/crown-card-faq",
     "/terms-of-service",
     "/mobile-order-terms",
+    "/trademarks",
+    "/accessibility",
+    "/unsolicited-idea-policy",
   ];
 
   const ProviderIcon = provider.includes(pathname) ? (
